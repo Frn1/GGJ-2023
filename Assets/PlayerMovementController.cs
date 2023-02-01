@@ -7,14 +7,13 @@ using UnityEngine.Serialization;
 public class PlayerMovementController : MonoBehaviour
 {
     public float maxSpeed = 15f;
+    public float speedMul = 1f;
 
     public float accelTime = 0.01f;
-    public float stopTime = 0.01f;
 
     private Rigidbody2D rigidbody2D;
 
     private float runningTime = 0f;
-    private float stoppedTime = 0f;
 
     void Start()
     {
@@ -30,9 +29,10 @@ public class PlayerMovementController : MonoBehaviour
         if (0.1 < horizontal || horizontal < -0.1)
         {
             runningTime += Time.deltaTime;
-            stoppedTime = 0;
-            velocity.x = Math.Clamp(runningTime / accelTime * maxSpeed, 0f, maxSpeed) * horizontal;
-        }
+            velocity.x = Math.Clamp((runningTime / accelTime) * maxSpeed, 0f, maxSpeed * speedMul) * horizontal;
+        } else {
+			runningTime = 0;
+		}
 
         rigidbody2D.velocity = velocity;
     }
