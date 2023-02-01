@@ -9,6 +9,7 @@ public class PlayerJumpController : MonoBehaviour
 
     private Rigidbody2D rb;
     private bool isGrounded;
+    public PlayerMovementController MovScript;
 
     void Start()
     {
@@ -18,7 +19,12 @@ public class PlayerJumpController : MonoBehaviour
     void Update()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
-
+        if(isGrounded)
+        {
+            MovScript.CanMove = false;
+        }
+        else
+            MovScript.CanMove = true;
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
