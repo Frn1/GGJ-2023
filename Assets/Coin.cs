@@ -8,7 +8,7 @@ public class Coin : MonoBehaviour
         {
             GameManager.instance.collectedCoins++;
 
-            // AudioManager.instance.Play("CoinPickup");
+            AudioManager.instance.Play("CoinPickup");
 
             Destroy(gameObject);
         }
