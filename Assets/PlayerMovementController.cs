@@ -30,9 +30,11 @@ public class PlayerMovementController : MonoBehaviour
         {
             runningTime += Time.deltaTime;
             velocity.x = Math.Clamp((runningTime / accelTime) * maxSpeed, 0f, maxSpeed * speedMul) * horizontal;
-        } else {
-			runningTime = 0;
-		}
+        }
+        else
+        {
+            runningTime = 0;
+        }
 
         rigidbody2D.velocity = velocity;
     }

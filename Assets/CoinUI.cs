@@ -6,15 +6,15 @@ using UnityEngine;
 public class CoinUI : MonoBehaviour
 {
     private TextMeshProUGUI _textMeshPro;
-    
+
     private string _baseText = "";
-    
+
     void Start()
     {
         _textMeshPro = GetComponent<TextMeshProUGUI>();
         _baseText = _textMeshPro.text;
     }
-    
+
     void Update()
     {
         int coins = GameManager.instance.collectedCoins;

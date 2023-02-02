@@ -9,8 +9,6 @@ public class Spike : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             GameManager.instance.gameOver = true;
-
-            Destroy(other.gameObject);
         }
     }
 }
