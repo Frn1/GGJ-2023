@@ -11,11 +11,12 @@ public class RootsGrowing : MonoBehaviour
     public Jump2D movScript;
     public SpriteRenderer pjSprite;
     public int roots;
-    bool rooted;
+    public bool rooted;
     
     // Start is called before the first frame update
     void Start()
     {
+        rooted = false;
         delay = rootingDelay;
         duration = rootingDuration;
     }
@@ -41,11 +42,12 @@ public class RootsGrowing : MonoBehaviour
                     if (pjSprite.color == Color.green)
                         pjSprite.color = Color.red;
                 }
-                if (rooted && roots <= 0)
-                {
-                    duration = rootingDuration;
-                    rooted = false;
-                }
+                
+            }
+            if (rooted && roots <= 0)
+            {
+                duration = rootingDuration;
+                rooted = false;
             }
         }
         else if(roots<=0)
