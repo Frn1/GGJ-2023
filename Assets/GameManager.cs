@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     }
 
     public int collectedCoins = 0;
+    public bool gameOver = false;
 
     private void Awake()
     {
