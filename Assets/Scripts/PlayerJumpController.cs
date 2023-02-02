@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class PlayerJumpController : MonoBehaviour
 {
+    public float fallMultiplier = 2.5f;
+    public float lowJumpMultiplier = 2f;
     public float jumpForce = 10f;
     public Transform groundCheck;
     public float groundCheckRadius = 0.2f;
@@ -18,6 +20,14 @@ public class PlayerJumpController : MonoBehaviour
 
     void Update()
     {
+        if (rb.velocity.y < 0)
+        {
+            rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+        }
+        else if (rb.velocity.y > 0 && !Input.GetButton("Jump"))
+        {
+            rb.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
+        }
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
         if(isGrounded)
         {
@@ -27,7 +37,7 @@ public class PlayerJumpController : MonoBehaviour
             MovScript.CanMove = true;
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
-            rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+            rb.velocity = Vector2.up * jumpForce;
         }
     }
 }
