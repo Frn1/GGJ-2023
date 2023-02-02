@@ -1,16 +1,23 @@
 name: Build project
 
-on: [push, pull_request]
+on:
+  pull_request:
+    types:
+      - closed
+      - review-requested
+  push:
+    branches:
+      - 'master'
 jobs:
   buildForAllSupportedPlatforms:
-    name: Build for ${{ matrix.targetPlatform }}
+#    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
         targetPlatform:
           # - StandaloneOSX # Build a macOS standalone (Intel 64-bit).
-          - StandaloneWindows # Build a Windows standalone.
+          # - StandaloneWindows # Build a Windows standalone.
           - StandaloneWindows64 # Build a Windows 64-bit standalone.
           # - StandaloneLinux64 # Build a Linux 64-bit standalone.
           # - iOS # Build an iOS player.
