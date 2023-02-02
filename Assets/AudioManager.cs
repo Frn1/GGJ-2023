@@ -30,7 +30,7 @@ public class AudioManager : MonoBehaviour
     {
         sfxSource.PlayOneShot(clip);
     }
-    
+
     // public void PlaySfxWithSource(AudioSource source, AudioClip clip)
     // {
     //     source.PlayOneShot(clip);
