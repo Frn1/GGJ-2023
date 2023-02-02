@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 
 public class PlayerMovementController : MonoBehaviour
@@ -11,29 +12,35 @@ public class PlayerMovementController : MonoBehaviour
 
     public float accelTime = 0.01f;
 
-    private Rigidbody2D rigidbody2D;
+    private Rigidbody2D _rigidbody2D;
 
-    private float runningTime = 0f;
+    private float _runningTime = 0f;
+    
+    private Vector2 _moveAmount = new Vector2();
 
     void Start()
     {
-        rigidbody2D = GetComponent<Rigidbody2D>();
+        _rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-
-        Vector2 velocity = new Vector2(0f, rigidbody2D.velocity.y);
-
+        float horizontal = _moveAmount.x;
+        Vector2 velocity = new Vector2(0f, _rigidbody2D.velocity.y);
+  
+        // Debug.Log(_runningTime);
         if (0.1 < horizontal || horizontal < -0.1)
         {
-            runningTime += Time.deltaTime;
-            velocity.x = Math.Clamp((runningTime / accelTime) * maxSpeed, 0f, maxSpeed * speedMul) * horizontal;
+            _runningTime = Math.Min(_runningTime + Time.deltaTime, accelTime);
+            velocity.x = Math.Clamp((_runningTime / accelTime) * maxSpeed, 0f, maxSpeed * speedMul) * horizontal;
         } else {
-			runningTime = 0;
+			_runningTime = Math.Max(_runningTime - Time.deltaTime, 0);
 		}
-
-        rigidbody2D.velocity = velocity;
+  
+        _rigidbody2D.velocity = velocity;
+    }
+    public void OnMove(InputAction.CallbackContext context)
+    {
+        _moveAmount = context.ReadValue<Vector2>();
     }
 }
