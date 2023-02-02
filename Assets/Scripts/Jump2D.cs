@@ -31,7 +31,7 @@ public class Jump2D : MonoBehaviour
         }
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            rb.velocity = Vector2.up * jumpForce*jumpReducer;
+            rb.velocity = Vector2.up * jumpForce *jumpReducer;
             //isGrounded = false;
         }
     }

@@ -8,11 +8,13 @@ public class Checkpoint : MonoBehaviour
 {
     public int checkpoint = 0;
 
+    public bool invisible = false;
+    
     [SerializeField] private SpriteRenderer _spriteRenderer;
 
     private void Update()
     {
-        if (checkpoint == 0)
+        if (checkpoint == 0 || invisible)
         {
             _spriteRenderer.enabled = false;
         }

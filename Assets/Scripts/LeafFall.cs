@@ -42,14 +42,25 @@ public class LeafFall : MonoBehaviour
         }
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        if(collision.gameObject.layer== LayerMask.NameToLayer("Player"))
+        if (other.gameObject.CompareTag("Piña"))
+        {
+            countdownFall = 0;
+        }
+        
+    }
+
+    private void OnCollisionStay2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
         countdownFall -= Time.deltaTime;
     }
-    private void OnTriggerExit2D(Collider2D collision)
+    
+    private void OnTriggerExit2D(Collider2D other)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Pinia"))
+        if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Piña"))
             countdownFall = 0;
         startRegrow = true;
     }

@@ -6,8 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public Transform player;
+    public GameObject playerPrefab;
 
+    private GameObject player;
+    
     private static GameManager _instance;
 
     public static GameManager instance
@@ -32,6 +34,8 @@ public class GameManager : MonoBehaviour
             _gameOver = value;
             if (_gameOver)
             {
+                Destroy(player);
+                player = Instantiate(playerPrefab);
                 tpToCheckpoint(currentCheckpoint);
             }
         }
@@ -42,7 +46,7 @@ public class GameManager : MonoBehaviour
 
     private bool _gameOver = false;
 
-    private void tpToCheckpoint(int number)
+    bool tpToCheckpoint(int number)
     {
         bool found = false;
         var scene = SceneManager.GetActiveScene();
@@ -58,8 +62,8 @@ public class GameManager : MonoBehaviour
                     if (checkpoint.checkpoint == number)
                     {
                         _gameOver = false;
-                        player.position = checkpoint.transform.position;
-                        player.GetComponent<Rigidbody2D>().velocity = new Vector2();
+                        player.transform.parent = gameObject.transform.parent.parent;
+                        player.transform.position = checkpoint.transform.position;
                         found = true;
                     }
 
@@ -78,12 +82,18 @@ public class GameManager : MonoBehaviour
                 if (checkpoint.checkpoint == number)
                 {
                     _gameOver = false;
-                    player.position = checkpoint.transform.position;
-                    player.GetComponent<Rigidbody2D>().velocity = new Vector2();
+                    player.transform.parent = rootGameObject.transform;
+                    player.transform.position = checkpoint.transform.position;
                     break;
                 }
             }
         }
+        // if (found == false)
+        // {
+        //     GameObject newPlayer = Instantiate(playerPrefab);
+        //     newPlayer.transform.parent = scene.GetRootGameObjects()[0].transform;
+        // }
+        return found;
     }
     
     private void Awake()
@@ -93,6 +103,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        player = Instantiate(playerPrefab);
         tpToCheckpoint(0);
     }
 }
