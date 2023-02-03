@@ -254,6 +254,7 @@ GameObject:
   - component: {fileID: 7843830264820704981}
   - component: {fileID: 5808034097582213991}
   - component: {fileID: 6686428785965657536}
+  - component: {fileID: 5625654219311006290}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -392,6 +393,7 @@ MonoBehaviour:
   movScript: {fileID: 7218588328177050656}
   pjSprite: {fileID: 2213718785962289002}
   roots: 0
+  jumpReducer: 0
   rooted: 0
   jumpsNeededToBreakRoots: 4
   rootsNeededForGameOver: 4
@@ -433,3 +435,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5625654219311006290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6793183628423168596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e88d559fa155f4a4a89f4f40dcae32a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpAudio: {fileID: 8300000, guid: 183b8739126ce5d40bb5d16b4bc762bc, type: 3}
+  rootingAudio: {fileID: 8300000, guid: 183b8739126ce5d40bb5d16b4bc762bc, type: 3}
+  unRootingAudio: {fileID: 8300000, guid: 183b8739126ce5d40bb5d16b4bc762bc, type: 3}
+  deadAudio: {fileID: 8300000, guid: 183b8739126ce5d40bb5d16b4bc762bc, type: 3}
