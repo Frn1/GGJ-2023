@@ -1024,7 +1024,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86d08a4feff6c2d48acd8c6e97209850, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   collectedCoins: 0
+  currentCheckpoint: 0
 --- !u!4 &559128647
 Transform:
   m_ObjectHideFlags: 0
@@ -1188,12 +1190,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: deb073f01ed2ccd4d876ba27f52be812, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fallMultiplier: 2.5
+  lowJumpMultiplier: 2
   jumpForce: 20
   groundCheck: {fileID: 398255233}
   groundCheckRadius: 0.01
   whatIsGround:
     serializedVersion: 2
     m_Bits: 8
+  MovScript: {fileID: 0}
 --- !u!212 &581547211
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1277,6 +1282,7 @@ MonoBehaviour:
   maxSpeed: 8
   speedMul: 1
   accelTime: 0.5
+  CanMove: 0
 --- !u!1 &581991239
 GameObject:
   m_ObjectHideFlags: 0
