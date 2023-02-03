@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public GameObject playerPrefab;
 
-    private GameObject player;
+    [NonSerialized] public GameObject player;
     
     private static GameManager _instance;
 
@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
                     if (checkpoint.checkpoint == number)
                     {
                         _gameOver = false;
-                        player.transform.parent = gameObject.transform.parent.parent;
+                        player.transform.parent = rootGameObject.transform.parent;
                         player.transform.position = checkpoint.transform.position;
                         found = true;
                     }
@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour
                 if (checkpoint.checkpoint == number)
                 {
                     _gameOver = false;
-                    player.transform.parent = rootGameObject.transform;
+                    player.transform.parent = rootGameObject.transform.parent;
                     player.transform.position = checkpoint.transform.position;
                     break;
                 }
