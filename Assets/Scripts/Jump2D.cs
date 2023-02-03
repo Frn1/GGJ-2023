@@ -50,7 +50,7 @@ public class Jump2D : MonoBehaviour
                 rb.velocity -= new Vector2(Input.GetAxis("Horizontal") * airControl, 0);
         }
 
-        Debug.Log(transform.position);
+        // Debug.Log(transform.position);
     }
 
     //private void OnCollisionEnter2D(Collision2D collision)

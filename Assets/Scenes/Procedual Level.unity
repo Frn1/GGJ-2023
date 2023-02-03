@@ -144,7 +144,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8274349646671829993, guid: 8667737ca278e574abb0b18968e6fc18, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -9.1
       objectReference: {fileID: 0}
     - target: {fileID: 8274349646671829993, guid: 8667737ca278e574abb0b18968e6fc18, type: 3}
       propertyPath: m_LocalPosition.y
@@ -271,10 +271,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba6bb96e73a3ce74d86825db67466953, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chunk: {fileID: 4461774973566387878, guid: fd2b477c99885114dbb5cbe96f5e8630, type: 3}
+  tree: {fileID: 4461774973566387878, guid: fd2b477c99885114dbb5cbe96f5e8630, type: 3}
   platformPrefab: {fileID: 3809131049087277502, guid: b9f1d392ee4fbd04c92a77f0a7faad74, type: 3}
-  maxChunks: 5
-  chunksSpawned: 2
+  checkpoint: {fileID: 7366470830431215322, guid: 8667737ca278e574abb0b18968e6fc18, type: 3}
+  maxChunks: 3
+  chunksSpawned: 0
 --- !u!61 &1666271582
 BoxCollider2D:
   m_ObjectHideFlags: 0
