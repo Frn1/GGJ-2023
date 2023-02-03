@@ -44,6 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86d08a4feff6c2d48acd8c6e97209850, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 6952517440406612898}
+  playerPrefab: {fileID: 6793183628423168596, guid: 0605d36fd85f02b4ba82a0c411a329b9, type: 3}
   collectedCoins: 0
   currentCheckpoint: 0
