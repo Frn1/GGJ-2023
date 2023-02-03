@@ -1,13 +1,15 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public GameObject playerPrefab;
-
+    // public CinemachineVirtualCamera virtualCamera;
+    
     [NonSerialized] public GameObject player;
     
     private static GameManager _instance;
@@ -37,6 +39,7 @@ public class GameManager : MonoBehaviour
                 Destroy(player);
                 player = Instantiate(playerPrefab);
                 tpToCheckpoint(currentCheckpoint);
+                // virtualCamera.Follow = player.transform;
             }
         }
         get { return _gameOver; }
@@ -105,5 +108,6 @@ public class GameManager : MonoBehaviour
     {
         player = Instantiate(playerPrefab);
         tpToCheckpoint(0);
+        // virtualCamera.FollowTargetAsVcam.Follow = player.transform;
     }
 }
