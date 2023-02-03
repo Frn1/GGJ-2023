@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 
 public class Jump2D : MonoBehaviour
@@ -12,15 +13,20 @@ public class Jump2D : MonoBehaviour
     public Transform groundCheck;
     public float groundCheckRadius = 0.2f;
     public LayerMask whatIsGround;
+    private Animator _animator;
+    private SpriteRenderer _spriteRenderer;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
         jumpReducer = 1;
     }
 
     private void Update()
     {
+        _animator.SetBool("isGrounded", isGrounded);
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
         if (rb.velocity.y < 0)
         {
@@ -40,14 +46,24 @@ public class Jump2D : MonoBehaviour
 
     private void FixedUpdate()
     {
+        float horizontal = Input.GetAxis("Debug Horizontal");
         if (!isGrounded)
         {
             if (Mathf.Abs(rb.velocity.x) <= 10)
             {
-                rb.velocity += new Vector2(Input.GetAxis("Horizontal") * airControl, 0);
+                rb.velocity += new Vector2(horizontal * airControl, 0);
             }
             else
-                rb.velocity -= new Vector2(Input.GetAxis("Horizontal") * airControl, 0);
+                rb.velocity -= new Vector2(horizontal * airControl, 0);
+        }
+
+        if (horizontal < -0.2)
+        {
+            _spriteRenderer.flipX = true;
+        }
+        else if (horizontal > 0.2)
+        {
+            _spriteRenderer.flipX = false;
         }
 
         // Debug.Log(transform.position);
