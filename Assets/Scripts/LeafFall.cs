@@ -27,12 +27,14 @@ public class LeafFall : MonoBehaviour
         {
             leaf.isTrigger = true;
             sprite.color = Color.gray;
+            leaf.enabled = false;
         }
         if(countdonRegrow<=0)
         {
             countdownFall = fallTimer;
             sprite.color = Color.green;
             leaf.isTrigger = false;
+            leaf.enabled = true;
             startRegrow = false;
             countdonRegrow = regrowTimer;
         }
