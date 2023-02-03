@@ -15,13 +15,14 @@ public class Jump2D : MonoBehaviour
     public LayerMask whatIsGround;
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
-
+    private PlayerSounds sounds;
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         jumpReducer = 1;
+        sounds=GetComponent<PlayerSounds>();
     }
 
     private void Update()
@@ -40,6 +41,7 @@ public class Jump2D : MonoBehaviour
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             rb.velocity = Vector2.up * jumpForce * jumpReducer;
+            sounds.JumpAudio();
             //isGrounded = false;
         }
     }

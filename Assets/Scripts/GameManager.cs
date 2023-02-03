@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
             return _instance;
         }
     }
+    public AudioClip deadSoudClip;
 
     public int collectedCoins = 0;
 
@@ -34,6 +35,7 @@ public class GameManager : MonoBehaviour
             _gameOver = value;
             if (_gameOver)
             {
+                AudioManager.instance.PlaySfx(deadSoudClip);    
                 Destroy(player);
                 player = Instantiate(playerPrefab);
                 tpToCheckpoint(currentCheckpoint);
