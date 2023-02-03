@@ -15,6 +15,8 @@ public class RootsGrowing : MonoBehaviour
     public int jumpsNeededToBreakRoots = 4;
     private int freeRequierment;
     public int rootsNeededForGameOver = 4;
+    public Animator rootsAnimator;
+    public SpriteRenderer rootsSpriteRenderer;
     
     // Start is called before the first frame update
     void Start()
@@ -44,6 +46,8 @@ public class RootsGrowing : MonoBehaviour
                 if (duration<0&&!rooted)
                 {
                     rooted = true;
+                    rootsSpriteRenderer.enabled = true;
+                    rootsAnimator.SetBool("Rooted", rooted);
                     freeRequierment = jumpsNeededToBreakRoots;
                     movScript.jumpReducer = .3f;
                     if (pjSprite.color == Color.green)
@@ -56,6 +60,7 @@ public class RootsGrowing : MonoBehaviour
                 duration = rootingDuration;
                 rooted = false;
                 roots = 0;
+                rootsAnimator.SetBool("Rooted", rooted);
             }
             if (rooted)
             {
