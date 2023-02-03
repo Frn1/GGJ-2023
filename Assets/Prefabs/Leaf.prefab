@@ -50,6 +50,7 @@ MonoBehaviour:
   sprite: {fileID: 3434651138305796876}
   fallTimer: 2
   regrowTimer: 4
+  leafFallAudio: {fileID: 8300000, guid: 183b8739126ce5d40bb5d16b4bc762bc, type: 3}
 --- !u!212 &3434651138305796876
 SpriteRenderer:
   m_ObjectHideFlags: 0

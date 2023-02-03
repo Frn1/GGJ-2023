@@ -9,6 +9,8 @@ public class LeafFall : MonoBehaviour
     public float fallTimer,regrowTimer;
     float countdownFall,countdonRegrow;
     bool startRegrow;
+    public AudioClip leafFallAudio;
+    bool fall;
 
     // Start is called before the first frame update
     void Start()
@@ -23,11 +25,13 @@ public class LeafFall : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (countdownFall<=0)
+        if (countdownFall<=0&& !fall)
         {
+            fall = true;
             leaf.isTrigger = true;
             sprite.color = Color.gray;
             leaf.enabled = false;
+            AudioManager.instance.PlaySfx(leafFallAudio);
         }
         if(countdonRegrow<=0)
         {
@@ -37,6 +41,7 @@ public class LeafFall : MonoBehaviour
             leaf.enabled = true;
             startRegrow = false;
             countdonRegrow = regrowTimer;
+            fall = false;
         }
         if (startRegrow==true)
         {

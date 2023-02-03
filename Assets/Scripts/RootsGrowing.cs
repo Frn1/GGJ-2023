@@ -11,6 +11,7 @@ public class RootsGrowing : MonoBehaviour
     public Jump2D movScript;
     public SpriteRenderer pjSprite;
     public float roots;
+    public float jumpReducer;
     public bool rooted;
     public int jumpsNeededToBreakRoots = 4;
     private int freeRequierment;
@@ -18,12 +19,15 @@ public class RootsGrowing : MonoBehaviour
     public Animator rootsAnimator;
     public SpriteRenderer rootsSpriteRenderer;
     
+    private PlayerSounds sounds;
+
     // Start is called before the first frame update
     void Start()
     {
         rooted = false;
         delay = rootingDelay;
         duration = rootingDuration;
+        sounds = GetComponent<PlayerSounds>();
     }
 
     // Update is called once per frame
@@ -49,9 +53,10 @@ public class RootsGrowing : MonoBehaviour
                     rootsSpriteRenderer.enabled = true;
                     rootsAnimator.SetBool("Rooted", rooted);
                     freeRequierment = jumpsNeededToBreakRoots;
-                    movScript.jumpReducer = .3f;
+                    movScript.jumpReducer = jumpReducer;
                     if (pjSprite.color == Color.green)
                         pjSprite.color = Color.red;
+                    sounds.RootingAudio();
                 }
                 
             }
@@ -61,6 +66,7 @@ public class RootsGrowing : MonoBehaviour
                 rooted = false;
                 roots = 0;
                 rootsAnimator.SetBool("Rooted", rooted);
+                sounds.UnRootingAudio();
             }
             if (rooted)
             {
@@ -73,6 +79,8 @@ public class RootsGrowing : MonoBehaviour
             delay = rootingDelay;
         }
         if (!rooted)
+        {
             movScript.jumpReducer = 1;
+        }
     }
 }
