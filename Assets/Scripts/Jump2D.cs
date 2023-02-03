@@ -46,7 +46,7 @@ public class Jump2D : MonoBehaviour
 
     private void FixedUpdate()
     {
-        float horizontal = Input.GetAxis("Debug Horizontal");
+        float horizontal = Input.GetAxis("Horizontal");
         if (!isGrounded)
         {
             if (Mathf.Abs(rb.velocity.x) <= 10)

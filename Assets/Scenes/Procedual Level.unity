@@ -253,7 +253,7 @@ GameObject:
   - component: {fileID: 1666271582}
   - component: {fileID: 1666271581}
   m_Layer: 0
-  m_Name: Spawn Point
+  m_Name: Level Generator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -275,7 +275,7 @@ MonoBehaviour:
   platformPrefab: {fileID: 3809131049087277502, guid: b9f1d392ee4fbd04c92a77f0a7faad74, type: 3}
   checkpoint: {fileID: 7366470830431215322, guid: 8667737ca278e574abb0b18968e6fc18, type: 3}
   maxChunks: 3
-  chunksSpawned: 0
+  chunksSpawned: 1
 --- !u!61 &1666271582
 BoxCollider2D:
   m_ObjectHideFlags: 0
