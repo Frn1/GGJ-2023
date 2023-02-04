@@ -47,9 +47,13 @@ public class GameManager : MonoBehaviour
             _gameOver = value;
             if (_gameOver)
             {
-                AudioManager.instance.PlaySfx(deadSoudClip);
+                //! DO NOT PLAY SOUNDS WHEN TIMESCALE = 0
+                // AudioManager.instance.PlaySfx(deadSoudClip);
                 Time.timeScale = 0;
-                fadingValue = 0f;
+                if (!fading)
+                {
+                    fadingValue = 0f;
+                }
                 fading = true;
                 fader.enabled = true;
                 playerDeleted = false;

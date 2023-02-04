@@ -5,15 +5,22 @@ using UnityEngine;
 
 public class QuitButton : MonoBehaviour
 {
-    private void Start()
+    void Start()
     {
-        #if UNITY_WEBGL
-            Destroy(this);
-        #endif
+#if UNITY_WEBGL
+        Destroy(gameObject);
+#endif
+    }
+
+    private void Update()
+    {
+#if UNITY_WEBGL
+        Destroy(gameObject);
+#endif
     }
 
     public void OnPress()
     {
         Application.Quit();
-    } 
+    }
 }

@@ -70,7 +70,7 @@ public class RootsGrowing : MonoBehaviour
             }
             if (rooted)
             {
-                roots += Time.deltaTime;
+                roots += Time.unscaledDeltaTime;
             }
         }
         else if(freeRequierment<=0)
