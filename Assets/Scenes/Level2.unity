@@ -4857,6 +4857,34 @@ Transform:
   m_Father: {fileID: 1819108780}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1481362031 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7710006223410101159, guid: a6bf964c301cd3d499f21ac47e05dd73, type: 3}
+  m_PrefabInstance: {fileID: 691608808}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1481362033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481362031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00b2d199b96b516448144ab30fb26aed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ApplyAfter: 2
+  m_ChannelMask: 1
+  m_Gain: 1
+  m_Use2DDistance: 0
+  m_UseCameraSpace: 1
+  m_ReactionSettings:
+    m_SecondaryNoise: {fileID: 0}
+    m_AmplitudeGain: 1
+    m_FrequencyGain: 1
+    m_Duration: 1
+    m_NoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!4 &1485345425 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3373595162698946738, guid: b9f1d392ee4fbd04c92a77f0a7faad74, type: 3}
