@@ -58,7 +58,7 @@ public class Fader : MonoBehaviour
 
     IEnumerator FadeIt()
     {
-
+        myCanvas.GetComponent<Canvas>().sortingOrder = 100;
         while (!start)
         {
             //waiting to start
