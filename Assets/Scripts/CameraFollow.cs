@@ -8,13 +8,13 @@ public class CameraFollow : MonoBehaviour
     public GameObject tPlayer;
     public Transform tFollowTarget;
     private CinemachineVirtualCamera vcam;
- 
-    void Start()
+
+    private void Start()
     {
         vcam = GetComponent<CinemachineVirtualCamera>();
     }
- 
-    void Update()
+
+    private void Update()
     {
         if (tPlayer == null)
         {

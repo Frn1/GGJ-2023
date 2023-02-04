@@ -7,13 +7,13 @@ public class LeafFall : MonoBehaviour
     public Collider2D leaf;
     public SpriteRenderer sprite;
     public float fallTimer,regrowTimer;
-    float countdownFall,countdonRegrow;
-    bool startRegrow;
+    private float countdownFall,countdonRegrow;
+    private bool startRegrow;
     public AudioClip leafFallAudio;
-    bool fall;
+    private bool fall;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         startRegrow= false;
         countdownFall = fallTimer;
@@ -23,7 +23,7 @@ public class LeafFall : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (countdownFall<=0&& !fall)
         {

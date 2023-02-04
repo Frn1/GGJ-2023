@@ -11,7 +11,7 @@ public class SpawnPinia : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         countdown = timer;
         _spriteRenderer = GetComponent<SpriteRenderer>();
@@ -19,7 +19,7 @@ public class SpawnPinia : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         _spriteRenderer.enabled = false;
         countdown-=Time.deltaTime;  

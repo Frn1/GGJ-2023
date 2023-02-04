@@ -17,7 +17,8 @@ public class SceneFader : MonoBehaviour {
     #endregion
 
     #region MONOBHEAVIOR
-    void OnEnable()
+
+    private void OnEnable()
     {
         StartCoroutine(Fade(FadeDirection.Out));
     }

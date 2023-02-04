@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class QuitButton : MonoBehaviour
 {
-    void Start()
+    private void Start()
     {
 #if UNITY_WEBGL
         Destroy(gameObject);

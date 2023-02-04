@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using MoreMountains.Feedbacks;
 using UnityEngine;
 
 public class RootsGrowing : MonoBehaviour
@@ -8,7 +9,7 @@ public class RootsGrowing : MonoBehaviour
     public float rootingDuration;
     private float delay;
     private float duration;
-    public Jump2D movScript;
+    public PlayerJumpController movScript;
     public SpriteRenderer pjSprite;
     public float roots;
     public float jumpReducer;
@@ -18,35 +19,41 @@ public class RootsGrowing : MonoBehaviour
     public int rootsNeededForGameOver = 4;
     public Animator rootsAnimator;
     public SpriteRenderer rootsSpriteRenderer;
-    
-    private PlayerSounds sounds;
 
-    // Start is called before the first frame update
-    void Start()
+    private PlayerSounds sounds;
+    
+    [Header("Player Feedbacks")] 
+    [SerializeField] private MMFeedbacks _rootedFeedbacks;
+    [SerializeField] private MMFeedbacks _unrootedFeedbacks;
+    
+    private void Start()
     {
         rooted = false;
         delay = rootingDelay;
         duration = rootingDuration;
         sounds = GetComponent<PlayerSounds>();
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    private void Update()
     {
         if (roots >= rootsNeededForGameOver)
         {
             GameManager.instance.gameOver = true;
         }
+        
         if (Input.GetButtonDown("Jump"))
             freeRequierment--;
-            if (movScript.isGrounded)
+        
+        if (movScript.isGrounded)
         {
             delay -= Time.deltaTime;
             if (delay < 0)
             {
-                if(pjSprite.color == Color.white)
-                    pjSprite.color = Color.green;
+                /*if(pjSprite.color == Color.white)
+                    pjSprite.color = Color.green;*/
+                
                 duration -= Time.deltaTime;
+                
                 if (duration<0&&!rooted)
                 {
                     rooted = true;
@@ -54,30 +61,39 @@ public class RootsGrowing : MonoBehaviour
                     rootsAnimator.SetBool("Rooted", rooted);
                     freeRequierment = jumpsNeededToBreakRoots;
                     movScript.jumpReducer = jumpReducer;
-                    if (pjSprite.color == Color.green)
-                        pjSprite.color = Color.red;
-                    sounds.RootingAudio();
+                    
+                    /*if (pjSprite.color == Color.green)
+                        pjSprite.color = Color.red;*/
+                    
+                    _rootedFeedbacks.PlayFeedbacks();
+                    //sounds.RootingAudio();
                 }
                 
             }
+            
             if (rooted && freeRequierment <= 0)
             {
                 duration = rootingDuration;
                 rooted = false;
                 roots = 0;
                 rootsAnimator.SetBool("Rooted", rooted);
-                sounds.UnRootingAudio();
+                
+                _unrootedFeedbacks.PlayFeedbacks();
+                //sounds.UnRootingAudio();
             }
+            
             if (rooted)
             {
                 roots += Time.unscaledDeltaTime;
             }
         }
+            
         else if(freeRequierment<=0)
         {
             pjSprite.color = Color.white;
             delay = rootingDelay;
         }
+            
         if (!rooted)
         {
             movScript.jumpReducer = 1;

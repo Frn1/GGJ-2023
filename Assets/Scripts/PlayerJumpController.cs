@@ -1,43 +1,86 @@
+using MoreMountains.Feedbacks;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class PlayerJumpController : MonoBehaviour
 {
-    public float fallMultiplier = 2.5f;
-    public float lowJumpMultiplier = 2f;
-    public float jumpForce = 10f;
+    [SerializeField] private float jumpForce         = 10f;
+    [SerializeField] private float airControl        = 1f;
+    [SerializeField] private float fallMultiplier    = 2.5f;
+    [SerializeField] private float lowJumpMultiplier = 2f;
+    [SerializeField] private float groundCheckRadius = 0.2f;
+    
+    public float jumpReducer;
+    public bool isGrounded;
+
     public Transform groundCheck;
-    public float groundCheckRadius = 0.2f;
     public LayerMask whatIsGround;
+    
+    private Animator _animator;
+    private Rigidbody2D _rigidbody2D;
+    private PlayerSounds sounds;
+    private SpriteRenderer _spriteRenderer;
 
-    private Rigidbody2D rb;
-    private bool isGrounded;
-    public PlayerMovementController MovScript;
-
-    void Start()
+    [Header("Player Feedbacks")] 
+    [SerializeField] private MMFeedbacks _jumpFeedback;
+    
+    private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        _rigidbody2D = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        jumpReducer = 1;
+        sounds=GetComponent<PlayerSounds>();
     }
 
-    void Update()
+    private void Update()
     {
-        if (rb.velocity.y < 0)
-        {
-            rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
-        }
-        else if (rb.velocity.y > 0 && !Input.GetButton("Jump"))
-        {
-            rb.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
-        }
+        _animator.SetBool("isGrounded", isGrounded);
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
-        if(isGrounded)
+        
+        if (_rigidbody2D.velocity.y < 0)
         {
-            MovScript.CanMove = false;
+            _rigidbody2D.velocity += Vector2.up * (Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime);
         }
-        else
-            MovScript.CanMove = true;
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        
+        else if (_rigidbody2D.velocity.y > 0 && !Input.GetButton("Jump"))
         {
-            rb.velocity = Vector2.up * jumpForce;
+            _rigidbody2D.velocity += Vector2.up * (Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime);
+        }
+
+        if (Input.GetButtonDown("Jump") && isGrounded)
+        {
+            _rigidbody2D.velocity = Vector2.up * (jumpForce * jumpReducer);
+            
+            _jumpFeedback.PlayFeedbacks();
+            //sounds.JumpAudio();
+            //isGrounded = false;
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        float horizontal = Input.GetAxis("Horizontal");
+        
+        if (!isGrounded)
+        {
+            if (Mathf.Abs(_rigidbody2D.velocity.x) <= 10)
+            {
+                _rigidbody2D.velocity += new Vector2(horizontal * airControl, 0);
+            }
+            
+            else
+                _rigidbody2D.velocity -= new Vector2(horizontal * airControl, 0);
+        }
+
+        if (horizontal < -0.2)
+        {
+            _spriteRenderer.flipX = true;
+        }
+        
+        else if (horizontal > 0.2)
+        {
+            _spriteRenderer.flipX = false;
         }
     }
 }

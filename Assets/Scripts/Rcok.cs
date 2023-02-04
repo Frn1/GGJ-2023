@@ -7,10 +7,10 @@ public class Rcok : MonoBehaviour
 {
     private Rigidbody2D rigidbody2D;
     public Vector3 Mypos;
-    float direccion;
+    private float direccion;
     public bool izquierda;
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         direccion = 1;
         Mypos = this.transform.position;
@@ -18,7 +18,7 @@ public class Rcok : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         rigidbody2D.AddForce(new Vector2(direccion, 0));
         if (transform.position.x <= (Mypos.x - 2))

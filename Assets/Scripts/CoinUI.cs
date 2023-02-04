@@ -9,13 +9,13 @@ public class CoinUI : MonoBehaviour
 
     private string _baseText = "";
 
-    void Start()
+    private void Start()
     {
         _textMeshPro = GetComponent<TextMeshProUGUI>();
         _baseText = _textMeshPro.text;
     }
 
-    void Update()
+    private void Update()
     {
         int coins = GameManager.instance.collectedCoins;
         _textMeshPro.SetText(_baseText, coins);

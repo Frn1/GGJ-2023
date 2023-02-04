@@ -12,14 +12,15 @@ public class PlayerSlow : MonoBehaviour
     public SpriteRenderer Pj;
     public Sprite animacion;
     public Sprite orgsprite;
-    void Start()
+
+    private void Start()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
         OrgTimer = timer;
         orgsprite = Pj.sprite;
     }
 
-    void Update()
+    private void Update()
     {
         if (Mathf.Abs(rigidbody2D.velocity.x) < MinVelocity)
         {

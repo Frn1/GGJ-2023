@@ -22,7 +22,7 @@ public class LevelGenerator : MonoBehaviour
     private float height = 0;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         Transform chunkTransform = tree.transform;
         var chunkHeight = chunkTransform.localScale.y;
@@ -30,7 +30,7 @@ public class LevelGenerator : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
     }
 

@@ -15,12 +15,12 @@ public class PlayerMovementController : MonoBehaviour
 
     public bool CanMove;
 
-    void Start()
+    private void Start()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    private void Update()
     {
         float horizontal = Input.GetAxis("Horizontal");
         

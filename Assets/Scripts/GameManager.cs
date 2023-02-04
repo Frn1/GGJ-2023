@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour
 
     private bool _gameOver = false;
 
-    bool tpToCheckpoint(int number)
+    private bool tpToCheckpoint(int number)
     {
         bool found = false;
         var scene = SceneManager.GetActiveScene();
@@ -126,7 +126,7 @@ public class GameManager : MonoBehaviour
         _instance = this;
     }
 
-    void Start()
+    private void Start()
     {
         fader.enabled = false;
         player = Instantiate(playerPrefab);
