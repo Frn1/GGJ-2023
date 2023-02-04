@@ -273,7 +273,9 @@ MonoBehaviour:
   deadSoudClip: {fileID: 8300000, guid: 183b8739126ce5d40bb5d16b4bc762bc, type: 3}
   collectedCoins: 0
   fader: {fileID: 7035864955988007216}
+  finishScreen: {fileID: 4094631357822503787, guid: 8de1a2a6a879f8c438786f3b2ce86f7c, type: 3}
   currentCheckpoint: 0
+  finishCheckpoint: 2147483647
 --- !u!1 &7626722418558708532
 GameObject:
   m_ObjectHideFlags: 0

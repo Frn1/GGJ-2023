@@ -64,7 +64,26 @@ public class GameManager : MonoBehaviour
         get { return _gameOver; }
     }
 
-    public int currentCheckpoint = 0;
+    public GameObject finishScreen;
+
+    private int _currentCheckpoint = 0;
+    public int currentCheckpoint
+    {
+        set
+        {
+            _currentCheckpoint = value;
+            // if (_currentCheckpoint == finishCheckpoint)
+            // {
+            //     Time.timeScale = 0;
+            //     Instantiate(finishScreen);
+            // }
+        }
+        get
+        {
+            return _currentCheckpoint;
+        }
+    }
+    // public int finishCheckpoint = Int32.MaxValue;
 
     private bool _gameOver = false;
 

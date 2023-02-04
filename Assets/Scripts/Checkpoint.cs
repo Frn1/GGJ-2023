@@ -9,6 +9,8 @@ public class Checkpoint : MonoBehaviour
     public int checkpoint = 0;
 
     public bool invisible = false;
+
+    public string nextScene;
     
     [SerializeField] private SpriteRenderer _spriteRenderer;
 
@@ -32,6 +34,10 @@ public class Checkpoint : MonoBehaviour
     {
         if (other.CompareTag("Player") && checkpoint != 0)
         {
+            if (nextScene != null && nextScene.Trim().Length > 0)
+            {
+                Initiate.Fade(nextScene, Color.black, 2f);
+            }
             GameManager.instance.currentCheckpoint = checkpoint;
         }
     }
