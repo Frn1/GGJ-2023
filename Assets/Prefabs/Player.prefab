@@ -388,8 +388,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 022ed5029d729e44e924dd3817b58b51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rootingDelay: 2
-  rootingDuration: 2
+  rootingDelay: 0.5
+  rootingDuration: 3
   movScript: {fileID: 7218588328177050656}
   pjSprite: {fileID: 2213718785962289002}
   roots: 0
