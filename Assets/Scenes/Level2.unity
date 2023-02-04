@@ -2576,7 +2576,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6956861184037328764, guid: a6bf964c301cd3d499f21ac47e05dd73, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.0659657
+      value: 6.5
       objectReference: {fileID: 0}
     - target: {fileID: 6956861184037328764, guid: a6bf964c301cd3d499f21ac47e05dd73, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3355,7 +3355,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4543101730983819857, guid: 8667737ca278e574abb0b18968e6fc18, type: 3}
       propertyPath: nextScene
-      value: Scenes/Menu
+      value: Scenes/Credits
       objectReference: {fileID: 0}
     - target: {fileID: 4543101730983819857, guid: 8667737ca278e574abb0b18968e6fc18, type: 3}
       propertyPath: checkpoint
