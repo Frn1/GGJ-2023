@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class destruirPinia : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public float liveTime = 3f;
     private void Start()
     {
-        Destroy(gameObject,3);
+        Destroy(gameObject, liveTime);
     }
 
     // Update is called once per frame

@@ -6,6 +6,7 @@ public class SpawnPinia : MonoBehaviour
 {
     public GameObject pinia;
     public float timer;
+    public float liveTime = 3f;
     private float countdown;
 
     private SpriteRenderer _spriteRenderer;
@@ -25,7 +26,8 @@ public class SpawnPinia : MonoBehaviour
         countdown-=Time.deltaTime;  
         if (countdown<=0)
         {
-           Instantiate(pinia,transform);
+           GameObject piniaGameObject = Instantiate(pinia, transform);
+           piniaGameObject.GetComponent<destruirPinia>().liveTime = liveTime;
            countdown = timer;
         }
        

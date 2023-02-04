@@ -987,14 +987,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 6793183628423168596}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f68235a04238a445beac82948a0c15e, type: 3}
+  m_Script: {fileID: 11500000, guid: deb073f01ed2ccd4d876ba27f52be812, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 26.5
   airControl: 1
   fallMultiplier: 3
   lowJumpMultiplier: 15
-  groundCheckRadius: 0.3
+  groundCheckRadius: 0.2
   jumpReducer: 0
   isGrounded: 0
   groundCheck: {fileID: 3268272709082780828}

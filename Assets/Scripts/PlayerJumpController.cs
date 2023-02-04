@@ -4,10 +4,10 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerJumpController : MonoBehaviour
 {
-    [SerializeField] private float jumpForce         = 10f;
+    [SerializeField] private float jumpForce         = 26.5f;
     [SerializeField] private float airControl        = 1f;
-    [SerializeField] private float fallMultiplier    = 2.5f;
-    [SerializeField] private float lowJumpMultiplier = 2f;
+    [SerializeField] private float fallMultiplier    = 3f;
+    [SerializeField] private float lowJumpMultiplier = 15f;
     [SerializeField] private float groundCheckRadius = 0.2f;
     
     public float jumpReducer;
