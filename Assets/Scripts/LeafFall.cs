@@ -71,6 +71,7 @@ public class LeafFall : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         countdownFall -= Time.deltaTime;
         sprite.color = Color.blue;
+        
     }
     
     private void OnTriggerExit2D(Collider2D other)
