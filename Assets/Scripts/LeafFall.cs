@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using MoreMountains.Feedbacks;
 using UnityEngine;
 
 public class LeafFall : MonoBehaviour
@@ -11,6 +12,9 @@ public class LeafFall : MonoBehaviour
     private bool startRegrow;
     public AudioClip leafFallAudio;
     private bool fall;
+
+    [Header("Leaf Feedbacks")]
+    [SerializeField] private MMFeedbacks _FallFeedback;
 
     // Start is called before the first frame update
     private void Start()
@@ -56,7 +60,11 @@ public class LeafFall : MonoBehaviour
         {
             countdownFall = 0;
         }
-        
+        if (other.gameObject.CompareTag("Player"))
+        { 
+            _FallFeedback.PlayFeedbacks();
+            sprite.color = Color.blue;
+        }
     }
 
     private void OnCollisionStay2D(Collision2D other)
