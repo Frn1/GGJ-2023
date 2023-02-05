@@ -12,6 +12,7 @@ public class LeafFall : MonoBehaviour
     private bool startRegrow;
     public AudioClip leafFallAudio;
     private bool fall;
+    Color fadeout;
 
     [Header("Leaf Feedbacks")]
     [SerializeField] private MMFeedbacks _FallFeedback;
@@ -19,28 +20,32 @@ public class LeafFall : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        startRegrow= false;
+        fadeout = Color.white;
+        fadeout.a=1;
+        startRegrow = false;
         countdownFall = fallTimer;
         countdonRegrow = regrowTimer;
         sprite = gameObject.GetComponent<SpriteRenderer>();
         leaf = gameObject.GetComponent<Collider2D>();
+        
     }
 
     // Update is called once per frame
     private void Update()
     {
+        sprite.color = fadeout;
         if (countdownFall<=0&& !fall)
         {
             fall = true;
             leaf.isTrigger = true;
-             sprite.color = Color.gray;
+            //sprite.color = Color.gray;
             leaf.enabled = false;
             AudioManager.instance.PlaySfx(leafFallAudio);
         }
         if(countdonRegrow<=0)
         {
             countdownFall = fallTimer;
-            sprite.color = Color.green;
+            fadeout.a = 1;
             leaf.isTrigger = false;
             leaf.enabled = true;
             startRegrow = false;
@@ -70,8 +75,8 @@ public class LeafFall : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         countdownFall -= Time.deltaTime;
-        sprite.color = Color.blue;
-        
+        fadeout.a =countdownFall/fallTimer;
+
     }
     
     private void OnTriggerExit2D(Collider2D other)
@@ -79,6 +84,7 @@ public class LeafFall : MonoBehaviour
         if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Piña"))
             countdownFall = 0;
         startRegrow = true;
+        
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
