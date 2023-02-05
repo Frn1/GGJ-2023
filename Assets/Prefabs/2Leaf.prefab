@@ -469,20 +469,20 @@ MonoBehaviour:
   ChannelMode: 0
   Channel: 0
   MMChannelDefinition: {fileID: 0}
-  ShakeDuration: 0.5
+  ShakeDuration: 0.2
   PlayOnAwake: 0
   PermanentShake: 0
   Interruptible: 1
   AlwaysResetTargetValuesAfterShake: 0
-  CooldownBetweenShakes: 0
+  CooldownBetweenShakes: 1
   Shaking: 1
   ForwardDirection: 1
   TimescaleMode: 0
   Mode: 0
   TargetTransform: {fileID: 0}
   TargetRectTransform: {fileID: 0}
-  ShakeSpeed: 20
-  ShakeRange: 0.5
+  ShakeSpeed: 10
+  ShakeRange: 0.1
   OscillationOffset: 0
   ShakeMainDirection: {x: 1, y: 0, z: 0}
   RandomizeDirection: 0
