@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -10,9 +11,12 @@ public class Checkpoint : MonoBehaviour
 
     public bool invisible = false;
 
+    public bool isEnd = false;
     public string nextScene;
 
-    public float killZoneDistance = 17.5f;
+    public bool hasKillZone = true;
+    public Vector2 killZoneDistance = new Vector2(0, -17.5f);
+    public float killZoneRotation = 0f;
     public GameObject killZone;
 
     [SerializeField] private SpriteRenderer _spriteRenderer;
@@ -47,8 +51,10 @@ public class Checkpoint : MonoBehaviour
             {
                 GameObject newKillZone = Instantiate(killZone);
                 Vector3 pos = transform.position;
-                pos.y -= killZoneDistance;
+                pos.x += killZoneDistance.x;
+                pos.y += killZoneDistance.y;
                 newKillZone.transform.position = pos;
+                newKillZone.transform.rotation = new (0, 0 , killZoneRotation, 0);
                 killZone.transform.localScale = new Vector3(50, 5, 1);
             }
         }
