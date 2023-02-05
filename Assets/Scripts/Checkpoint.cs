@@ -9,7 +9,7 @@ using Random = UnityEngine.Random;
 public class Checkpoint : MonoBehaviour
 {
     public int checkpoint = 0;
-
+    public GameObject animation;
     public bool invisible = false;
     
     [FormerlySerializedAs("_spriteRenderer")] [SerializeField] private SpriteRenderer spriteRenderer;
@@ -19,10 +19,13 @@ public class Checkpoint : MonoBehaviour
         if (checkpoint == 0 || invisible)
         {
             spriteRenderer.enabled = false;
+            
         }
         else if (checkpoint == GameManager.instance.CurrentCheckpoint)
         {
             spriteRenderer.color = Color.green;
+            
+            
         }
         else
         {
@@ -34,7 +37,7 @@ public class Checkpoint : MonoBehaviour
     {
         if (other.CompareTag("Player") && checkpoint != 0)
         {
-
+            animation.GetComponent<Animator>().enabled = true;
             GameManager.instance.CurrentCheckpoint = checkpoint;
         }
     }
