@@ -1996,6 +1996,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 603872137}
     m_Modifications:
+    - target: {fileID: 2560543574516511071, guid: e171ad815eeec6847b0456eca32b328e, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2943396980793812601, guid: e171ad815eeec6847b0456eca32b328e, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -12234,6 +12238,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 691608809}
+    - target: {fileID: 6262107201541558974, guid: 6ec11a624542adc48be93dc1ce105a98, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6952517440406612898, guid: 6ec11a624542adc48be93dc1ce105a98, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -13557,11 +13565,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8274349646671829993, guid: 8667737ca278e574abb0b18968e6fc18, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.2
+      value: -10.33
       objectReference: {fileID: 0}
     - target: {fileID: 8274349646671829993, guid: 8667737ca278e574abb0b18968e6fc18, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10.2
+      value: -8.42
       objectReference: {fileID: 0}
     - target: {fileID: 8274349646671829993, guid: 8667737ca278e574abb0b18968e6fc18, type: 3}
       propertyPath: m_LocalPosition.z
