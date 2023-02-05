@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class Checkpoint : MonoBehaviour
@@ -10,30 +11,22 @@ public class Checkpoint : MonoBehaviour
     public int checkpoint = 0;
 
     public bool invisible = false;
-
-    public bool isEnd = false;
-    public string nextScene;
-
-    public bool hasKillZone = true;
-    public Vector2 killZoneDistance = new Vector2(0, -17.5f);
-    public float killZoneRotation = 0f;
-    public GameObject killZone;
-
-    [SerializeField] private SpriteRenderer _spriteRenderer;
+    
+    [FormerlySerializedAs("_spriteRenderer")] [SerializeField] private SpriteRenderer spriteRenderer;
 
     private void Update()
     {
         if (checkpoint == 0 || invisible)
         {
-            _spriteRenderer.enabled = false;
+            spriteRenderer.enabled = false;
         }
-        else if (checkpoint == GameManager.instance.currentCheckpoint)
+        else if (checkpoint == GameManager.instance.CurrentCheckpoint)
         {
-            _spriteRenderer.color = Color.green;
+            spriteRenderer.color = Color.green;
         }
         else
         {
-            _spriteRenderer.color = Color.red;
+            spriteRenderer.color = Color.red;
         }
     }
 
@@ -41,22 +34,8 @@ public class Checkpoint : MonoBehaviour
     {
         if (other.CompareTag("Player") && checkpoint != 0)
         {
-            if (nextScene != null && nextScene.Trim().Length > 0)
-            {
-                Initiate.Fade(nextScene, Color.black, 2f);
-            }
 
-            GameManager.instance.currentCheckpoint = checkpoint;
-            if (checkpoint == GameManager.instance.currentCheckpoint)
-            {
-                GameObject newKillZone = Instantiate(killZone);
-                Vector3 pos = transform.position;
-                pos.x += killZoneDistance.x;
-                pos.y += killZoneDistance.y;
-                newKillZone.transform.position = pos;
-                newKillZone.transform.rotation = new (0, 0 , killZoneRotation, 0);
-                killZone.transform.localScale = new Vector3(50, 5, 1);
-            }
+            GameManager.instance.CurrentCheckpoint = checkpoint;
         }
     }
 }

@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 4543101730983819857}
   - component: {fileID: 6393986475433139982}
   - component: {fileID: 7150095479336007121}
+  - component: {fileID: 4190774860245333224}
+  - component: {fileID: 1974682063018990219}
   m_Layer: 0
   m_Name: Checkpoint
   m_TagString: Untagged
@@ -48,11 +50,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkpoint: 1
   invisible: 0
-  nextScene: 
-  hasKillZone: 1
-  killZoneDistance: {x: 0, y: -17.5}
-  killZoneRotation: 0
-  killZone: {fileID: 8638554140874561537, guid: 569100ca653ce704f8457722e4e7b062, type: 3}
   _spriteRenderer: {fileID: 7150095479336007121}
 --- !u!61 &6393986475433139982
 BoxCollider2D:
@@ -132,3 +129,34 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4190774860245333224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7366470830431215322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7277e78b9728854390cc0e32c11aaeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endScreen: {fileID: 4094631357822503787, guid: 8de1a2a6a879f8c438786f3b2ce86f7c, type: 3}
+  isEnd: 0
+  nextScene: 
+--- !u!114 &1974682063018990219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7366470830431215322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7de95a0ac720c3044b54e6919ec01423, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasKillZone: 1
+  killZoneDistance: {x: 0, y: -17.5}
+  killZoneRotation: 0
+  killZone: {fileID: 8638554140874561537, guid: 569100ca653ce704f8457722e4e7b062, type: 3}

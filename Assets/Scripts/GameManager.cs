@@ -30,7 +30,10 @@ public class GameManager : MonoBehaviour
 
     public AudioClip deadSoudClip;
 
+    // Stats
     public int collectedCoins = 0;
+    public int jumps = 0;
+    public int deaths = 0;
 
     public Image fader;
 
@@ -54,10 +57,12 @@ public class GameManager : MonoBehaviour
                 {
                     fadingValue = 0f;
                 }
+
                 fading = true;
                 fader.enabled = true;
                 playerDeleted = false;
                 playerRecreated = false;
+                deaths++;
                 // virtualCamera.Follow = player.transform;
             }
         }
@@ -67,27 +72,13 @@ public class GameManager : MonoBehaviour
     public GameObject finishScreen;
 
     private int _currentCheckpoint = 0;
-    public int currentCheckpoint
-    {
-        set
-        {
-            _currentCheckpoint = value;
-            // if (_currentCheckpoint == finishCheckpoint)
-            // {
-            //     Time.timeScale = 0;
-            //     Instantiate(finishScreen);
-            // }
-        }
-        get
-        {
-            return _currentCheckpoint;
-        }
-    }
+
+    public int CurrentCheckpoint { set; get; } = 0;
     // public int finishCheckpoint = Int32.MaxValue;
 
     private bool _gameOver = false;
 
-    private bool tpToCheckpoint(int number)
+    private bool TpToCheckpoint(int number)
     {
         bool found = false;
         var scene = SceneManager.GetActiveScene();
@@ -97,8 +88,8 @@ public class GameManager : MonoBehaviour
             Checkpoint checkpoint;
             for (int i = 0; i < rootGameObject.transform.childCount; i++)
             {
-                GameObject gameObject = rootGameObject.transform.GetChild(i).gameObject;
-                if (gameObject.TryGetComponent<Checkpoint>(out checkpoint))
+                GameObject childGameObject = rootGameObject.transform.GetChild(i).gameObject;
+                if (childGameObject.TryGetComponent<Checkpoint>(out checkpoint))
                 {
                     if (checkpoint.checkpoint == number)
                     {
@@ -114,6 +105,7 @@ public class GameManager : MonoBehaviour
                     break;
                 }
             }
+
 
             if (found)
             {
@@ -149,7 +141,7 @@ public class GameManager : MonoBehaviour
     {
         fader.enabled = false;
         player = Instantiate(playerPrefab);
-        tpToCheckpoint(0);
+        TpToCheckpoint(0);
         // virtualCamera.FollowTargetAsVcam.Follow = player.transform;
     }
 
@@ -169,7 +161,7 @@ public class GameManager : MonoBehaviour
                     Destroy(player);
                     playerDeleted = true;
                     player = Instantiate(playerPrefab);
-                    tpToCheckpoint(currentCheckpoint);
+                    TpToCheckpoint(CurrentCheckpoint);
                     playerRecreated = true;
                 }
 

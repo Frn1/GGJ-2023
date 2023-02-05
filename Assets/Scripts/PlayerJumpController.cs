@@ -51,6 +51,8 @@ public class PlayerJumpController : MonoBehaviour
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             _rigidbody2D.velocity = Vector2.up * (jumpForce * jumpReducer);
+
+            GameManager.instance.jumps++;
             
             _jumpFeedback.PlayFeedbacks();
             //sounds.JumpAudio();
