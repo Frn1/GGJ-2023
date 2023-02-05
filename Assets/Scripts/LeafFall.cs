@@ -63,7 +63,6 @@ public class LeafFall : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         { 
             _FallFeedback.PlayFeedbacks();
-            sprite.color = Color.blue;
         }
     }
 
@@ -71,6 +70,7 @@ public class LeafFall : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         countdownFall -= Time.deltaTime;
+        sprite.color = Color.blue;
     }
     
     private void OnTriggerExit2D(Collider2D other)
