@@ -1015,10 +1015,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rootingDelay: 0.5
-  rootingDuration: 0.5
+  rootingDuration: 1.25
   movScript: {fileID: 7218588328177050656}
   pjSprite: {fileID: 2213718785962289002}
-  roots: 0
+  roots: -2
   jumpReducer: 0
   rooted: 0
   jumpsNeededToBreakRoots: 4

@@ -33,7 +33,7 @@ public class LeafFall : MonoBehaviour
         {
             fall = true;
             leaf.isTrigger = true;
-            sprite.color = Color.gray;
+             sprite.color = Color.gray;
             leaf.enabled = false;
             AudioManager.instance.PlaySfx(leafFallAudio);
         }
