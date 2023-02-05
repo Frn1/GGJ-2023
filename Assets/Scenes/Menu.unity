@@ -1418,7 +1418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9afb82b1b03e50a458bc1ed11bec2cc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstLevel: Scenes/Level2
+  firstLevel: Scenes/Level1
   fader: {fileID: 282532151}
 --- !u!1 &2013711457
 GameObject:
