@@ -19,6 +19,6 @@ public class Stats : MonoBehaviour
         int coins = GameManager.instance.collectedCoins;
         int jumps = GameManager.instance.jumps;
         int deaths = GameManager.instance.deaths;
-        _textMeshPro.SetText(_baseText, coins);
+        _textMeshPro.SetText(_baseText, jumps, coins, deaths);
     }
 }
