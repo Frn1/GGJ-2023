@@ -75,7 +75,7 @@ public class LeafFall : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         countdownFall -= Time.deltaTime;
-        fadeout.a =countdownFall/fallTimer;
+        fadeout.a =(countdownFall/fallTimer)+0.3f;
 
     }
     
@@ -83,7 +83,7 @@ public class LeafFall : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Piña"))
         { countdownFall = 0;
-            fadeout.a = 0;
+            fadeout.a = 0.3f;
         }
         startRegrow = true;
         
