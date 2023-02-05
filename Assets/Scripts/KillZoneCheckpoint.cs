@@ -25,6 +25,7 @@ public class KillZoneCheckpoint : MonoBehaviour
             foreach (KillZone zone in killZonesToEnable)
             {
                 zone.enabled = false;
+                zone.gameObject.SetActive(false);
             }
         }
     }
@@ -48,6 +49,7 @@ public class KillZoneCheckpoint : MonoBehaviour
             {
                 foreach (KillZone zone in killZonesToEnable)
                 {
+                    zone.gameObject.SetActive(true);
                     zone.enabled = true;
                 }
             }
