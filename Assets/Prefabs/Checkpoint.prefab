@@ -50,6 +50,9 @@ MonoBehaviour:
   invisible: 0
   nextScene: 
   _spriteRenderer: {fileID: 7150095479336007121}
+  nextScene: 
+  killZoneDistance: 17.5
+  killZone: {fileID: 8638554140874561537, guid: 569100ca653ce704f8457722e4e7b062, type: 3}
 --- !u!61 &6393986475433139982
 BoxCollider2D:
   m_ObjectHideFlags: 0

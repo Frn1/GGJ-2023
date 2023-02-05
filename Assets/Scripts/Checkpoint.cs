@@ -11,7 +11,10 @@ public class Checkpoint : MonoBehaviour
     public bool invisible = false;
 
     public string nextScene;
-    
+
+    public float killZoneDistance = 17.5f;
+    public GameObject killZone;
+
     [SerializeField] private SpriteRenderer _spriteRenderer;
 
     private void Update()
@@ -38,7 +41,16 @@ public class Checkpoint : MonoBehaviour
             {
                 Initiate.Fade(nextScene, Color.black, 2f);
             }
+
             GameManager.instance.currentCheckpoint = checkpoint;
+            if (checkpoint == GameManager.instance.currentCheckpoint)
+            {
+                GameObject newKillZone = Instantiate(killZone);
+                Vector3 pos = transform.position;
+                pos.y -= killZoneDistance;
+                newKillZone.transform.position = pos;
+                killZone.transform.localScale = new Vector3(50, 5, 1);
+            }
         }
     }
 }
