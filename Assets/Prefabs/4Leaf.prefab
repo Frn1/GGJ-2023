@@ -474,7 +474,7 @@ MonoBehaviour:
   PermanentShake: 0
   Interruptible: 1
   AlwaysResetTargetValuesAfterShake: 0
-  CooldownBetweenShakes: 0.5
+  CooldownBetweenShakes: 1
   Shaking: 1
   ForwardDirection: 1
   TimescaleMode: 0
