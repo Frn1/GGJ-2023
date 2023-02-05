@@ -78,14 +78,13 @@ public class LeafFall : MonoBehaviour
             countdownFall -= Time.deltaTime;
             fadeout.a = countdownFall / fallTimer;
         }
-
     }
     
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Piña"))
         { countdownFall = 0;
-            fadeout.a = 0;
+            fadeout.a = 0.3f;
         }
         startRegrow = true;
         
