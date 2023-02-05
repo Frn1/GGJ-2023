@@ -114,19 +114,19 @@ MonoBehaviour:
         m_Calls: []
   DebugActive: 0
   FeedbacksList:
-  - rid: 6969860415286149120
   - rid: 9033314984306409472
+  - rid: 6969860418006155265
   KeepPlayModeChanges: 0
   PerformanceMode: 0
   ForceStopFeedbacksOnDisable: 1
   references:
     version: 2
     RefIds:
-    - rid: 6969860415286149120
+    - rid: 6969860418006155265
       type: {class: MMF_Sound, ns: MoreMountains.Feedbacks, asm: MoreMountains.Feedbacks.MMTools}
       data:
         Active: 1
-        UniqueID: -346649412
+        UniqueID: -685952712
         Label: Sound
         ChannelMode: 0
         Channel: 0
@@ -138,11 +138,11 @@ MonoBehaviour:
           ExcludeFromHoldingPauses: 0
           ContributeToTotalDuration: 1
           InitialDelay: 0
-          CooldownDuration: 2
+          CooldownDuration: 0
           InterruptsOnStop: 1
           NumberOfRepeats: 0
           RepeatForever: 0
-          DelayBetweenRepeats: 1
+          DelayBetweenRepeats: 0.5
           MMFeedbacksDirectionCondition: 0
           PlayDirection: 0
           ConstantIntensity: 0
@@ -190,7 +190,7 @@ MonoBehaviour:
         RemapRangeFalloff: {x: 0, y: 1}
         Owner: {fileID: 2918511614533451018}
         DebugActive: 0
-        Sfx: {fileID: 8300000, guid: 83e12bc2a9e7c466f85a0a9056f121ef, type: 3}
+        Sfx: {fileID: 8300000, guid: bcb8a14dbb4ce5b4080da9106ea18135, type: 3}
         RandomSfx: []
         TestPlayButton:
           ButtonText: Debug Play Sound
@@ -452,7 +452,7 @@ MonoBehaviour:
   sprite: {fileID: 3434651138305796876, guid: c9b1e7852b45be246af654644d8146e7, type: 3}
   fallTimer: 2
   regrowTimer: 4
-  leafFallAudio: {fileID: 8300000, guid: 183b8739126ce5d40bb5d16b4bc762bc, type: 3}
+  leafFallAudio: {fileID: 8300000, guid: b199f36198239b04a894756909d80c6e, type: 3}
   _FallFeedback: {fileID: 2918511614533451018}
 --- !u!114 &6881844313517253777
 MonoBehaviour:
