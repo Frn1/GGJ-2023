@@ -10,6 +10,7 @@ public class Checkpoint : MonoBehaviour
 {
     public int checkpoint = 0;
     public bool invisible = false;
+    public GameObject animation;
     
     [FormerlySerializedAs("_spriteRenderer")] [SerializeField] private SpriteRenderer spriteRenderer;
 
@@ -36,7 +37,7 @@ public class Checkpoint : MonoBehaviour
     {
         if (other.CompareTag("Player") && checkpoint != 0)
         {
-            GetComponent<Animation>().GetComponent<Animator>().enabled = true;
+            animation.GetComponent<Animator>().enabled = true;
             GameManager.instance.CurrentCheckpoint = checkpoint;
         }
     }
