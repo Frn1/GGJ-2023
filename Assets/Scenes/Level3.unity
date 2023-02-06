@@ -4759,7 +4759,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4190774860245333224, guid: 8667737ca278e574abb0b18968e6fc18, type: 3}
       propertyPath: nextScene
-      value: Scenes/Level3
+      value: Assets/Scenes/Menu.unity
       objectReference: {fileID: 0}
     - target: {fileID: 4543101730983819857, guid: 8667737ca278e574abb0b18968e6fc18, type: 3}
       propertyPath: nextScene
@@ -8706,7 +8706,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6481899493774068766, guid: 6ec11a624542adc48be93dc1ce105a98, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.47000122
+      value: 0.4699707
       objectReference: {fileID: 0}
     - target: {fileID: 6481899493774068766, guid: 6ec11a624542adc48be93dc1ce105a98, type: 3}
       propertyPath: m_AnchoredPosition.y

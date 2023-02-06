@@ -15,6 +15,7 @@ public class LevelEnd : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Time.timeScale = 1;
         _backButton.sceneName = nextScene;
     }
 }

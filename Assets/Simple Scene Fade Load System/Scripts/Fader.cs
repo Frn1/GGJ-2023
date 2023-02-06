@@ -129,7 +129,6 @@ public class Fader : MonoBehaviour
 
         return currAlpha;
     }
-
     void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
     {
         StartCoroutine(FadeIt());
