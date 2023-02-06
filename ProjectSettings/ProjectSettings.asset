@@ -408,7 +408,7 @@ PlayerSettings:
   openGLRequireES32: 0
   m_TemplateCustomTags:
     BACKGROUND: 
-    OPTIMIZE_FOR_PIXEL_ART: true
+    OPTIMIZE_FOR_PIXEL_ART: false
     SCALE_TO_FIT: true
   mobileMTRendering:
     Android: 1
