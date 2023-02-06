@@ -138,7 +138,7 @@ MonoBehaviour:
           ExcludeFromHoldingPauses: 0
           ContributeToTotalDuration: 1
           InitialDelay: 0
-          CooldownDuration: 0
+          CooldownDuration: 0.5
           InterruptsOnStop: 1
           NumberOfRepeats: 0
           RepeatForever: 0
